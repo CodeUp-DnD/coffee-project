@@ -1,16 +1,23 @@
 "use strict"
 
-function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
-    html += '<td>' + coffee.id + '</td>';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
+const renderCoffee = (coffee) => {
+    //Old Code
+    // var html = '<tr class="coffee">';
+    // html += '<td>' + coffee.id + '</td>';
+    // html += '<td>' + coffee.name + '</td>';
+    // html += '<td>' + coffee.roast + '</td>';
+    // html += '</tr>';
 
+    //New Code
+    var html = '<div>'
+    html += `<h3 id='${coffee.id + '_name'}'>${coffee.name}</h3>`
+    html += `<p id='${coffee.id + '_roast'}'>${coffee.roast}</p>`
+    html += '</div>'
+    
     return html;
 }
 
-function renderCoffees(coffees) {
+const renderCoffees = (coffees) => {
     var html = '';
     for(var i = coffees.length - 1; i >= 0; i--) {
         html += renderCoffee(coffees[i]);
@@ -18,7 +25,7 @@ function renderCoffees(coffees) {
     return html;
 }
 
-function updateCoffees(e) {
+const updateCoffees = (e) => {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
