@@ -9,7 +9,7 @@ const renderCoffee = (coffee) => {
     // html += '</tr>';
 
     //New Code
-    var html = '<div class="coffee">'
+    var html = `<div class="coffee" id="coffee_${coffee.id}">`
     html += `<h3 id='${coffee.id + '_name'}'>${coffee.name}</h3>`
     html += `<p id='${coffee.id + '_roast'}'>${coffee.roast}</p>`
     html += '</div>'

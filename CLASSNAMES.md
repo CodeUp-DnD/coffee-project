@@ -2,7 +2,7 @@
 
 ## Element structure
 
-![Coffee](img/coffee.png)
+![Coffee](img/coffee_items.png)
 
-<strong>class</strong> : coffee
-<strong>id</strong> : 
+1. <strong>class</strong> : coffee
+2. <strong>id</strong> : coffee_[coffee.id]  
