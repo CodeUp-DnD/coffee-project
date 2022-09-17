@@ -29,14 +29,70 @@ const renderCoffees = (coffees) => {
 }
 
 const updateCoffees = (e) => {
-    e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value;
+    /*
+        Vigo - Ticket #3 - Initially we will call
+        this function without an event in order
+        to render out the coffees with any existing
+        search filters. So we need to check for the event
+        before preventing the default behavior.
+    */    
+    if(e){ //Only if there's an event available
+        e.preventDefault(); // don't submit the form, we just want to update the data
+    }
+
+    //Vigo - Ticket #3
+    //Pull the selected roast directly from localStorage
+    //OLD CODE
+    // var selectedRoast = roastSelection.value;
+    //NEW CODE
+    const selectedRoast = localStorage.getItem('roast_selection')
+    console.log(selectedRoast)
+
+    //Check for the selected roast    
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
-            filteredCoffees.push(coffee);
+        //OLD CODE
+        // if (coffee.roast === selectedRoast) {
+        //     filteredCoffees.push(coffee);
+        // }
+
+        //NEW CODE
+        /*
+            Vigo - Ticket #3 - Now let's check
+            against our stored search term and
+            filter the list further by the coffee's 
+            name and the selected roast type
+        */
+        let searchTerm = localStorage.getItem('search_term')
+
+        //If the search term includes the name of the coffee
+        if(coffee.roast === selectedRoast){ //If the roast matches
+            //Add there's a search term available
+            if(searchTerm){ 
+                //And it includes the name of the coffee
+                /*
+                    This can be improved by using
+                    string comparison algorithms like
+                    1. Levenshtein distance algorithm
+                    2. Jaro-Winkler text distance algorithm
+                    3. Sorensen Dice algorithm
+                    4. Jaccard index algorithm
+                    etc..
+
+                    we'll leave it for now
+
+                */
+                if(searchTerm.toLowerCase().includes(coffee.name.toLowerCase())){
+                    //Add it to the list
+                    filteredCoffees.push(coffee)
+                }
+            }else{ //Otherwise just sort by roast type
+                filteredCoffees.push(coffee)
+            }
         }
     });
+
+
 
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
@@ -63,7 +119,34 @@ var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 
-tbody.innerHTML = renderCoffees(coffees);
+//Vigo - Ticket #3
+//If there is a roast selection stored in the localStorage
+//Set the value of the roast select to that value
+roastSelection.value = localStorage.getItem('roast_selection')
+/*
+    Vigo - Ticket #3
+    Adding event listener to the roast select
+    so we can update the coffee list dynamically
+    as soon as they make a selection
+*/
+roastSelection.addEventListener('change',e=>{
+    localStorage.setItem('roast_selection',e.target.value)
+    updateCoffees(e)
+})
+
+//Vigo - Ticket #3 
+/*
+    Instead of automatically rendering the entire 
+    coffee list, check if there are search filters
+    available in the localStorage, apply them before
+    rendering, this is already being done inside the 
+    updateCoffees function, so we can just call that
+    since it contains a final call to renderCoffees
+*/
+//OLD CODE
+// tbody.innerHTML = renderCoffees(coffees);
+//NEW CODE
+updateCoffees()
 
 submitButton.addEventListener('click', updateCoffees);
 
@@ -74,3 +157,11 @@ submitButton.addEventListener('click', updateCoffees);
     (You will need to add an input field to the existing form for this)
 */
 const searchInput = document.querySelector('#search_input')
+searchInput.value = localStorage.getItem('search_term')
+let searchTerm = null
+searchInput.addEventListener('keyup',(e)=>{
+    //Store the search term in localStorage so we can access it inside the update function
+    localStorage.setItem('search_term',e.target.value)
+    //Update the coffee list based on the new search term
+    updateCoffees(e)
+})
