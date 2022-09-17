@@ -66,7 +66,8 @@ const updateCoffees = (e) => {
         let searchTerm = localStorage.getItem('search_term')
 
         //If the search term includes the name of the coffee
-        if(coffee.roast === selectedRoast){ //If the roast matches
+        if(coffee.roast === selectedRoast || selectedRoast === 'all roasts'){  //Vigo - Ticket 6 - Filter all roasts option
+            //If the roast matches
             //Add there's a search term available
             if(searchTerm){ 
                 //And it includes the name of the coffee

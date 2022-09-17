@@ -18,14 +18,15 @@
             <option>light</option>
             <option>medium</option>
             <option>dark</option>
+            <!--Vigo - Ticket #6 - Add an option to select all roasts for roast type-->
+            <option>all roasts</option>
         </select>
-        <br/>
         <label for="search_input">Search Coffee's:</label>
         <input type="text" name="search_input" id="search_input" placeholder="Search our Coffee's" class="search_input"/>
         <input id="submit" type="submit" />
     </form>
-
-    <!--VIGO Ticket #1 
+    <hr/>
+    <!--VIGO - Ticket #1 
         The page looks pretty plain as it is, and the refactoring 
         we did above to use `div`s for coffees should give us more 
         flexibility in styling. (*Hint: the styling shown in the 
@@ -43,7 +44,28 @@
         <tbody id="coffees"></tbody>
     </table> -->
     <div id="coffees"></div>
-    
+    <!--VIGO - Ticket #7
+        Create another form on the page that has an input for the
+        coffee name, and a select to choose the coffee roast. 
+        When the form is submitted, the new coffee should appear 
+        on the page. (*Note that any new coffees you add will be 
+        lost when you refresh the page, for an extra challenge, 
+        research how `localStorage` works and see if you can find 
+        a way to persist the data*)
+    -->
+    <hr/>
+    <form class="add_coffee_form" id="add_coffee_form">
+        <h4 id="add_a_new_coffee_heading">Add a New Coffee</h4>
+        <label for="new_roast_selection">Select Roast Type:</label>
+        <select id="new_roast_selection" class="new_roast_selection" name="new_roast_selection">
+            <option>light</option>
+            <option>medium</option>
+            <option>dark</option>
+        </select>
+        <label for="new_coffee_name" class="new_coffee_name_label" id="new_coffee_name_label">Coffee Name:</label>
+        <input type="text" name="new_coffee_name" placeholder="New Coffee Name" class="new_coffee_name_input" id="new_coffee_name_input"/>
+        <input type="submit" id="submit" value="Add Coffee"/>
+    </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
