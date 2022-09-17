@@ -66,3 +66,11 @@ var roastSelection = document.querySelector('#roast-selection');
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
+
+
+/*
+    VIGO - Ticket #3 - Add functionality to search through the coffees by name, 
+    and display only the coffees that match the provided search term 
+    (You will need to add an input field to the existing form for this)
+*/
+const searchInput = document.querySelector('#search_input')
