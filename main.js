@@ -119,12 +119,12 @@ var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 
-//Vigo - Ticket #3
+//Vigo - Ticket #3/4
 //If there is a roast selection stored in the localStorage
 //Set the value of the roast select to that value
 roastSelection.value = localStorage.getItem('roast_selection')
 /*
-    Vigo - Ticket #3
+    Vigo - Ticket #4
     Adding event listener to the roast select
     so we can update the coffee list dynamically
     as soon as they make a selection
@@ -159,6 +159,12 @@ submitButton.addEventListener('click', updateCoffees);
 const searchInput = document.querySelector('#search_input')
 searchInput.value = localStorage.getItem('search_term')
 let searchTerm = null
+
+/*
+    VIGO - Ticket #4 - Add functionality to update the 
+    displayed coffee as the user types into the search 
+    box, or as soon as they select an option from the select.
+*/
 searchInput.addEventListener('keyup',(e)=>{
     //Store the search term in localStorage so we can access it inside the update function
     localStorage.setItem('search_term',e.target.value)
