@@ -1,5 +1,4 @@
 "use strict"
-
 const renderCoffee = (coffee) => {
     //Old Code
     // var html = '<tr class="coffee">';
@@ -19,6 +18,9 @@ const renderCoffee = (coffee) => {
 
 
 const renderCoffees = (coffees) => {
+    //VIGO: Ticket #2 - When the page loads, the coffees should be sorted by their ids in ascending order
+    coffees.sort((a,b)=>a.id < b.id ? 0 : -1) //Sort by id in asc order
+
     var html = '';
     for(var i = coffees.length - 1; i >= 0; i--) {
         html += renderCoffee(coffees[i]);
@@ -35,6 +37,7 @@ const updateCoffees = (e) => {
             filteredCoffees.push(coffee);
         }
     });
+
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
