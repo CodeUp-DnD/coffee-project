@@ -82,6 +82,9 @@ const updateCoffees = (e) => {
                     we'll leave it for now
 
                 */
+                /*
+                    Vigo - Ticket #5 - Make search case insensitive
+                */
                 if(searchTerm.toLowerCase().includes(coffee.name.toLowerCase())){
                     //Add it to the list
                     filteredCoffees.push(coffee)
