@@ -1,4 +1,12 @@
 (function(){
+    // Smith - turned into IIFE here.
+    //  From https://java.codeup.com/javascript-i/functions/:
+    //  "From this point forward, you should enclose all of your javascript code
+    //  inside of an iife (including function definitions). Doing this protects
+    //  our code from being exposed to the global scope."
+
+    //  I also changed any vars to lets so we only have to worry about block-scope {}
+
     "use strict"
 const renderCoffee = (coffee) => {
     //Old Code
@@ -17,13 +25,12 @@ const renderCoffee = (coffee) => {
     return html;
 }
 
-
 const renderCoffees = (coffees) => {
     //VIGO: Ticket #2 - When the page loads, the coffees should be sorted by their ids in ascending order
     coffees.sort((a,b)=>a.id < b.id ? 0 : -1); //Sort by id in asc order
 
-    let htmlCol1 = '<div class="col-sm-6 col-md-6">';
-    let htmlCol2 = '<div class="col-sm-6 col-md-6">';
+    let htmlCol1 = '<div class="col-sm-6 col-md-6">';//Smith - Left column
+    let htmlCol2 = '<div class="col-sm-6 col-md-6">';//Smith - Right column
     for(let i = coffees.length - 1; i >= 0; i--) {
         if (i % 2 == 0) {
             htmlCol1 += renderCoffee(coffees[i]);
@@ -33,8 +40,7 @@ const renderCoffees = (coffees) => {
     }
     htmlCol1 += '</div>';
     htmlCol2 += '</div>';
-    let finalHtml = '<div class="row">' + htmlCol1 + htmlCol2 + '</div>';
-    console.log(finalHtml);
+    let finalHtml = '<div class="row">' + htmlCol1 + htmlCol2 + '</div>';  //Smith - mash columns into one html
     return finalHtml;
 }
 
@@ -226,5 +232,5 @@ submitNewCoffee.addEventListener('click',(e)=>{
     updateCoffees()
 })
 
-    updateCoffees();
+    updateCoffees();  //Smith - calls on load since its all in a IIFE now
 }());
