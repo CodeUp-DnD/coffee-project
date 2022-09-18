@@ -8,7 +8,7 @@ const renderCoffee = (coffee) => {
     // html += '</tr>';
 
     //New Code
-    var html = `<div class="coffee" id="coffee_${coffee.id}">`
+    let html = `<div class="coffee" id="coffee_${coffee.id}">`
     html += `<h3 id='${coffee.id + '_name'}'>${coffee.name}</h3>`
     html += `<p id='${coffee.id + '_roast'}'>${coffee.roast}</p>`
     html += '</div>'
@@ -19,13 +19,22 @@ const renderCoffee = (coffee) => {
 
 const renderCoffees = (coffees) => {
     //VIGO: Ticket #2 - When the page loads, the coffees should be sorted by their ids in ascending order
-    coffees.sort((a,b)=>a.id < b.id ? 0 : -1) //Sort by id in asc order
+    coffees.sort((a,b)=>a.id < b.id ? 0 : -1); //Sort by id in asc order
 
-    var html = '';
-    for(var i = coffees.length - 1; i >= 0; i--) {
-        html += renderCoffee(coffees[i]);
+    let htmlCol1 = '<div class="col-sm-6 col-md-6">';
+    let htmlCol2 = '<div class="col-sm-6 col-md-6">';
+    for(let i = coffees.length - 1; i >= 0; i--) {
+        if (i % 2 == 0) {
+            htmlCol1 += renderCoffee(coffees[i]);
+        } else {
+            htmlCol2 += renderCoffee(coffees[i]);
+        }
     }
-    return html;
+    htmlCol1 += '</div>';
+    htmlCol2 += '</div>';
+    let finalHtml = '<div class="row">' + htmlCol1 + htmlCol2 + '</div>';
+    console.log(finalHtml);
+    return finalHtml;
 }
 
 const updateCoffees = (e) => {
@@ -49,7 +58,7 @@ const updateCoffees = (e) => {
     console.log(selectedRoast)
 
     //Check for the selected roast    
-    var filteredCoffees = [];
+    let filteredCoffees = [];
     coffees.forEach(function(coffee) {
         //OLD CODE
         // if (coffee.roast === selectedRoast) {
@@ -122,7 +131,7 @@ let default_coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ]
 
-var coffees = [
+let coffees = [
    
 ];
 
@@ -138,9 +147,9 @@ if(!localStorageCoffees){
 
 
 
-var tbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
-var roastSelection = document.querySelector('#roast-selection');
+let tbody = document.querySelector('#coffees');
+let submitButton = document.querySelector('#submit');
+let roastSelection = document.querySelector('#roast-selection');
 
 //Vigo - Ticket #3/4
 //If there is a roast selection stored in the localStorage
