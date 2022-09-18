@@ -11,21 +11,51 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Coffee!</h1>
-    <form>
-        <label for="roast-selection"></label>
-        <select id="roast-selection">
-            <option>light</option>
-            <option>medium</option>
-            <option>dark</option>
-            <!--Vigo - Ticket #6 - Add an option to select all roasts for roast type-->
-            <option>all roasts</option>
-        </select>
-        <label for="search_input">Search Coffee's:</label>
-        <input type="text" name="search_input" id="search_input" placeholder="Search our Coffee's" class="search_input"/>
-        <input id="submit" type="submit" />
-    </form>
+    <div class="mx-auto" style="width: 20%;">
+        <h1>Coffee!</h1>
+    </div>
+
     <hr/>
+    <div class="row">
+        <div class="col-sm-1 col-md-1"></div>
+        <div class="col-sm-4 col-md-4">
+            <div class="row row-cols-2">
+                <div id="coffees">
+                </div>
+            </div>
+            <div class="row row-cols-2"></div>
+        </div>
+        <div class="col-sm-1 col-md-1"></div>
+        <div class="col-sm-5 col-md-5">
+            <form>
+                <label for="roast-selection"></label>
+                <select id="roast-selection">
+                <option>light</option>
+                <option>medium</option>
+                <option>dark</option>
+                <!--Vigo - Ticket #6 - Add an option to select all roasts for roast type-->
+                <option>all roasts</option>
+                </select>
+                <label for="search_input">Search Coffee's:</label>
+                <input type="text" name="search_input" id="search_input" placeholder="Search our Coffee's" class="search_input"/>
+                <input id="submit" type="submit" />
+            </form>
+            <hr/>
+            <form class="add_coffee_form" id="add_coffee_form">
+                <h4 id="add_a_new_coffee_heading">Add a New Coffee</h4>
+                <label for="new_roast_selection">Select Roast Type:</label>
+                <select id="new_roast_selection" class="new_roast_selection" name="new_roast_selection">
+                    <option>light</option>
+                    <option>medium</option>
+                    <option>dark</option>
+                </select>
+                <label for="new_coffee_name">Coffee Name:</label>
+                <input type="text" name="new_coffee_name" placeholder="New Coffee Name" class="new_coffee_name_input" id="new_coffee_name_input"/>
+                <input type="submit" id="submit_new" name="submit_new" value="Add Coffee"/>
+            </form>
+            <hr/>
+        </div>
+    </div>
     <!--VIGO - Ticket #1 
         The page looks pretty plain as it is, and the refactoring 
         we did above to use `div`s for coffees should give us more 
@@ -43,7 +73,6 @@
         </thead>
         <tbody id="coffees"></tbody>
     </table> -->
-    <div id="coffees"></div>
     <!--VIGO - Ticket #7
         Create another form on the page that has an input for the
         coffee name, and a select to choose the coffee roast. 
@@ -53,20 +82,9 @@
         research how `localStorage` works and see if you can find 
         a way to persist the data*)
     -->
-    <hr/>
-    <form class="add_coffee_form" id="add_coffee_form">
-        <h4 id="add_a_new_coffee_heading">Add a New Coffee</h4>
-        <label for="new_roast_selection">Select Roast Type:</label>
-        <select id="new_roast_selection" class="new_roast_selection" name="new_roast_selection">
-            <option>light</option>
-            <option>medium</option>
-            <option>dark</option>
-        </select>
-        <label for="new_coffee_name">Coffee Name:</label>
-        <input type="text" name="new_coffee_name" placeholder="New Coffee Name" class="new_coffee_name_input" id="new_coffee_name_input"/>
-        <input type="submit" id="submit_new" name="submit_new" value="Add Coffee"/>
-    </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <div class="col-sm-1 col-md-1">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
 </html>
