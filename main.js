@@ -82,7 +82,7 @@ const updateCoffees = (e) => {
         let searchTerm = localStorage.getItem('search_term')
 
         //If the search term includes the name of the coffee
-        if(coffee.roast === selectedRoast || selectedRoast === 'all roasts'){  //Vigo - Ticket 6 - Filter all roasts option
+        if(coffee.roast === selectedRoast || /*selectedRoast ===*/ 'all roasts'){  //Vigo - Ticket 6 - Filter all roasts option
             //If the roast matches
             //Add there's a search term available
             if(searchTerm){ 
@@ -232,5 +232,4 @@ submitNewCoffee.addEventListener('click',(e)=>{
     updateCoffees()
 })
 
-    updateCoffees();  //Smith - calls on load since its all in a IIFE now
 }());
