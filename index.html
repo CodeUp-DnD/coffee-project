@@ -14,45 +14,50 @@
     <div class="mx-auto" style="width: 20%;">
         <h1>Coffee!</h1>
     </div>
-
     <hr/>
     <div class="row">
         <div class="col-sm-1 col-md-1"></div>
         <div class="col-sm-4 col-md-4">
-            <div class="row row-cols-2">
-                <div id="coffees">
-                </div>
-            </div>
-            <div class="row row-cols-2"></div>
+            <div id="coffees"></div>
         </div>
         <div class="col-sm-1 col-md-1"></div>
         <div class="col-sm-5 col-md-5">
             <form>
-                <label for="roast-selection"></label>
-                <select id="roast-selection">
+                <label for="roast-selection" class="form-label">Roast:</label>
+                <select id="roast-selection" class="form-control">
                 <option>light</option>
                 <option>medium</option>
                 <option>dark</option>
                 <!--Vigo - Ticket #6 - Add an option to select all roasts for roast type-->
                 <option>all roasts</option>
                 </select>
-                <label for="search_input">Search Coffee's:</label>
-                <input type="text" name="search_input" id="search_input" placeholder="Search our Coffee's" class="search_input"/>
-                <input id="submit" type="submit" />
+                <br/>
+                <label for="search_input" class="form-label">Search Coffee's:</label>
+                <input type="text" name="search_input" id="search_input" placeholder="Search our Coffee's" class="search_input form-control"/>
+                <br/>
+                <input id="submit" type="submit"  class="form-control"/>
+                <br/>
             </form>
             <hr/>
             <form class="add_coffee_form" id="add_coffee_form">
+                <br/>
                 <h4 id="add_a_new_coffee_heading">Add a New Coffee</h4>
-                <label for="new_roast_selection">Select Roast Type:</label>
-                <select id="new_roast_selection" class="new_roast_selection" name="new_roast_selection">
+                <br/>
+                <label for="new_roast_selection" class="form-label">Select Roast Type:</label>
+                <br/>
+                <select id="new_roast_selection" class="new_roast_selection form-control" name="new_roast_selection">
                     <option>light</option>
                     <option>medium</option>
                     <option>dark</option>
                 </select>
-                <label for="new_coffee_name">Coffee Name:</label>
-                <input type="text" name="new_coffee_name" placeholder="New Coffee Name" class="new_coffee_name_input" id="new_coffee_name_input"/>
-                <input type="submit" id="submit_new" name="submit_new" value="Add Coffee"/>
-            </form>
+                <br/>
+                <label for="new_coffee_name_input" class="form-label">Coffee Name:</label>
+                <br/>
+                <input type="text" name="new_coffee_name" placeholder="New Coffee Name" class="new_coffee_name_input form-control" id="new_coffee_name_input"/>
+                <br/>
+                <input type="submit" id="submit_new" name="submit_new" class = " form-control" value="Add Coffee"/>
+                <br/>
+           </form>
             <hr/>
         </div>
     </div>
