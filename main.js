@@ -61,7 +61,7 @@ const updateCoffees = (e) => {
     //OLD CODE
     // var selectedRoast = roastSelection.value;
     //NEW CODE
-    const selectedRoast = localStorage.getItem('roast_selection')
+    const selectedRoast = localStorage.getItem('roast_selection');
     console.log(selectedRoast)
 
     //Check for the selected roast    

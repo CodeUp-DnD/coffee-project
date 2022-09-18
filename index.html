@@ -29,13 +29,13 @@
          <div class="col-sm-1 col-md-1"></div>
         <div class="col-sm-5 col-md-5">
             <form>
-                <label for="roast-selection" class="form-label">Roast:</label>
-                <select id="roast-selection" class="form-control">
-                <option>light</option>
-                <option>medium</option>
-                <option>dark</option>
-                <!--Vigo - Ticket #6 - Add an option to select all roasts for roast type-->
-                <option>all roasts</option>
+                <label for="roast-selection" class="form-label">Select Roast Type:</label>
+                <select id="roast-selection" class="roast_selection form-control" name="roast_selection">
+                    <!--Vigo - Ticket #6 - Add an option to select all roasts for roast type-->
+                    <option>all roasts</option>
+                    <option>light</option>
+                    <option>medium</option>
+                    <option>dark</option>
                 </select>
                 <br/>
                 <label for="search_input" class="form-label">Search Coffee's:</label>
@@ -51,7 +51,7 @@
                 <br/>
                 <label for="new_roast_selection" class="form-label">Select Roast Type:</label>
                 <br/>
-                <select id="new_roast_selection" class="new_roast_selection form-control" name="new_roast_selection form-control">
+                <select id="new_roast_selection" class="new_roast_selection form-control" name="new_roast_selection">
                     <option>light</option>
                     <option>medium</option>
                     <option>dark</option>
@@ -64,7 +64,6 @@
                 <input type="submit" id="submit_new" name="submit_new" class = "form-control" value="Add Coffee"/>
                 <br/>
            </form>
-            <hr/>
         </div>
     </div>
     <!--VIGO - Ticket #1 
