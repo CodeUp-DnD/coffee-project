@@ -1,4 +1,5 @@
-"use strict"
+(function(){
+    "use strict"
 const renderCoffee = (coffee) => {
     //Old Code
     // var html = '<tr class="coffee">';
@@ -224,3 +225,6 @@ submitNewCoffee.addEventListener('click',(e)=>{
     newCoffeeName.value = ''
     updateCoffees()
 })
+
+    updateCoffees();
+}());
