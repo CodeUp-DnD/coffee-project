@@ -102,7 +102,10 @@ const updateCoffees = (e) => {
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-var coffees = [
+/*
+    Vigo - Ticket #7 - Save coffees to localStorage
+*/
+let default_coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
     {id: 3, name: 'Cinnamon', roast: 'light'},
@@ -117,7 +120,23 @@ var coffees = [
     {id: 12, name: 'Viennese', roast: 'dark'},
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
+]
+
+var coffees = [
+   
 ];
+
+let localStorageCoffees = JSON.parse(localStorage.getItem('coffees'))
+console.log(localStorageCoffees)
+
+if(!localStorageCoffees){
+    coffees = default_coffees
+    localStorage.setItem('coffees',JSON.stringify(coffees))
+}else{
+    coffees = localStorageCoffees
+}
+
+
 
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
@@ -174,4 +193,25 @@ searchInput.addEventListener('keyup',(e)=>{
     localStorage.setItem('search_term',e.target.value)
     //Update the coffee list based on the new search term
     updateCoffees(e)
+})
+
+
+//VIGO : Ticket #7 - Adding New Items
+let newRoastSelection = document.querySelector('#new_roast_selection')
+let submitNewCoffee = document.querySelector('#submit_new')
+let newCoffeeName = document.querySelector('#new_coffee_name_input')
+submitNewCoffee.addEventListener('click',(e)=>{
+    e.preventDefault()
+    let roast = newRoastSelection.value
+    let name = newCoffeeName.value
+    let id = coffees.length + 1
+    let newCofee = {
+        id,
+        name,
+        roast
+    }
+    coffees.push(newCofee)
+    localStorage.setItem('coffees',JSON.stringify(coffees))
+    newCoffeeName.value = ''
+    updateCoffees()
 })
