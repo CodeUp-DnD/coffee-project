@@ -1,5 +1,11 @@
 # Coffee Project
 
+## GitHub Actions Enabled
+
+1. Action for building github-page at https://codeup-dnd.github.io/coffee-project/ automatically everytime code is pushed.
+
+## Codeup Project Instructions
+
 Congratulations! You have landed your first development job! You have inherited
 a project from Fancy Coffee Company&copy;, and they want you to make
 improvements to it.
