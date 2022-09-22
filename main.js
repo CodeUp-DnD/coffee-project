@@ -61,7 +61,14 @@ const updateCoffees = (e) => {
     //OLD CODE
     // var selectedRoast = roastSelection.value;
     //NEW CODE
-    const selectedRoast = localStorage.getItem('roast_selection');
+    let selectedRoast = localStorage.getItem('roast_selection');
+
+    //Check if there is a selected roast in local storage first
+    if(!selectedRoast){ //If there's not
+        localStorage.setItem('roast_selection','all roasts') //Set the roast in the local storage variable
+        selectedRoast = 'all roasts' //and the local version
+    } //rock on.
+
     console.log(selectedRoast)
 
     //Check for the selected roast    
