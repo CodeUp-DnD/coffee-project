@@ -136,6 +136,9 @@ let default_coffees = [
     {id: 12, name: 'Viennese', roast: 'dark'},
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
+    {id: 15, name: 'Cowboy Coffee', roast: 'dark'},
+    {id: 16, name: 'Unicorn Piss', roast: 'light'},
+    {id: 17, name: 'JP-10', roast: 'medium'},
 ]
 
 let coffees = [

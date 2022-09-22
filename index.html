@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--Vigo Checking In-->
-    <!--Smitty Checking In-->
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,18 +18,11 @@
         <div class="col-sm-4 col-md-4">
             <div id="coffees"></div>
         </div>
-        <!--div class="col-sm-2 col-md-2">
-            <div id="coffeesOdd"></div>
-        </div>
-        <div class="col-sm-2 col-md-2">
-            <div id="coffeesEven"></div>
-        </div-->
          <div class="col-sm-1 col-md-1"></div>
         <div class="col-sm-5 col-md-5">
             <form>
                 <label for="roast-selection" class="form-label">Select Roast Type:</label>
                 <select id="roast-selection" class="roast_selection form-control" name="roast_selection">
-                    <!--Vigo - Ticket #6 - Add an option to select all roasts for roast type-->
                     <option>all roasts</option>
                     <option>light</option>
                     <option>medium</option>
@@ -66,34 +57,7 @@
            </form>
         </div>
     </div>
-    <!--VIGO - Ticket #1 
-        The page looks pretty plain as it is, and the refactoring 
-        we did above to use `div`s for coffees should give us more 
-        flexibility in styling. (*Hint: the styling shown in the 
-        example below can be achieved purely with bootstrap classes, 
-        that is, without custom CSS*)
-    -->
-    <!-- <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>NAME</th>
-                <th>ROAST</th>
-            </tr>
-        </thead>
-        <tbody id="coffees"></tbody>
-    </table> -->
-    <!--VIGO - Ticket #7
-        Create another form on the page that has an input for the
-        coffee name, and a select to choose the coffee roast. 
-        When the form is submitted, the new coffee should appear 
-        on the page. (*Note that any new coffees you add will be 
-        lost when you refresh the page, for an extra challenge, 
-        research how `localStorage` works and see if you can find 
-        a way to persist the data*)
-    -->
-        <div class="col-sm-1 col-md-1">
-
+    <div class="col-sm-1 col-md-1"></div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
